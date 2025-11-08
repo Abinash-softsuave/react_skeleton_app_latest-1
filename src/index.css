@@ -1,0 +1,104 @@
+@import 'tailwindcss';
+
+/* Tailwind v4 Dark Mode Configuration */
+@variant dark (&:where(.dark, .dark *));
+
+/* Custom Colors using Tailwind v4 theme() function */
+@theme {
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+  --color-primary-950: #172554;
+}
+
+/* Global Styles */
+@layer base {
+  body {
+    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100;
+    @apply font-sans antialiased;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+/* Custom Components */
+@layer components {
+  /* Button Variants */
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700;
+    @apply focus:ring-primary-500;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100;
+    @apply hover:bg-gray-300 dark:hover:bg-gray-600;
+    @apply focus:ring-gray-500;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 text-white hover:bg-red-700;
+    @apply focus:ring-red-500;
+  }
+
+  /* Card Component */
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-md;
+    @apply border border-gray-200 dark:border-gray-700;
+    @apply p-6 transition-shadow hover:shadow-lg;
+  }
+
+  /* Input Styles */
+  .input {
+    @apply w-full px-4 py-2 border border-gray-300 dark:border-gray-600;
+    @apply bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100;
+    @apply rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500;
+    @apply transition-all duration-200;
+  }
+
+  /* Container */
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r;
+    @apply from-primary-600 to-purple-600;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Loading Animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
